@@ -35,17 +35,27 @@ Bienvenue <%= login %> !
   </tr>
   <% for(int i=0;i< listeFic.length;i++){ %>
        <tr>
-	 <td><%= listeFic[i] %></td>
+	 <td><a href="<%= "./users/"+session.getAttribute("login")+"/"+listeFic[i]%>" > <%= listeFic[i] %> </a></td>
        </tr>
        <% } %>
 </TABLE>
    <br>
    <br>
-<form method="post" action="index.html">
-<input type="submit" value="Deconnecter" />
-</form>
-<br>
-<br>
+   <form method="POST" action="./servlet/upload" enctype="multipart/form-data" >
+     File:
+     <input type="file" name="file" id="file" />
+     <br>
+     <br>
+     <input type="submit" value="Upload" name="upload" id="upload" />
+   </form>
+   <br>
+   <br>
+   
+   <form method="post" action="index.html">
+     <input type="submit" value="Deconnecter" />
+   </form>
+   <br>
+   <br>
 </center>
 
 </BODY>

@@ -40,17 +40,17 @@ public class Enregistrement extends HttpServlet
 		session.setAttribute("erreur","Champ vide");
 		res.sendRedirect("../enregistrement.jsp");
 	    }
-	    
-	    try {
-		stmt.executeUpdate("INSERT INTO personne VALUES ('"+nom1+"','"+login1+"','"+mdp1+"')");
-	    } catch (Exception e) {
-		session.setAttribute("erreur","Login déjà utilisé");
-	        res.sendRedirect("../enregistrement.jsp");
+	    else {
+		try {
+		    stmt.executeUpdate("INSERT INTO personne VALUES ('"+nom1+"','"+login1+"','"+mdp1+"')");
+		} catch (Exception e) {
+		    session.setAttribute("erreur","Login déjà utilisé");
+		    res.sendRedirect("../enregistrement.jsp");
+		}
+		Runtime.getRuntime().exec("mkdir -p "+login1, null, new
+					  File(getServletContext().getRealPath("/")+"/users") );
+		res.sendRedirect("../index.html");
 	    }
-
-	    Runtime.getRuntime().exec("mkdir -p "+login1, null, new
-File(getServletContext().getRealPath("/")+"/users") );
-	    res.sendRedirect("../index.html");
 	}
 	
 	catch(Exception e) {
