@@ -35,14 +35,21 @@ public class Enregistrement extends HttpServlet
 	    nom1= req.getParameter("nom");
 	    login1 = req.getParameter("login");
 	    mdp1 = req.getParameter("mdp");
+
+	    if(nom1.equals("") || login1.equals("") || mdp1.equals("")){
+		session.setAttribute("erreur","Champ vide");
+		res.sendRedirect("../enregistrement.jsp");
+	    }
 	    
 	    try {
 		stmt.executeUpdate("INSERT INTO personne VALUES ('"+nom1+"','"+login1+"','"+mdp1+"')");
 	    } catch (Exception e) {
-				session.setAttribute("erreur","Login déjà utilisé");
+		session.setAttribute("erreur","Login déjà utilisé");
 	        res.sendRedirect("../enregistrement.jsp");
 	    }
 
+	    Runtime.getRuntime().exec("mkdir -p "+login1, null, new
+File(getServletContext().getRealPath("/")+"/users") );
 	    res.sendRedirect("../index.html");
 	}
 	

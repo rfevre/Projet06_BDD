@@ -17,7 +17,14 @@
 <%
    String login = (String)session.getAttribute("login");
    if (login==null)
-       response.sendRedirect("index.html");
+   response.sendRedirect("index.html");
+
+   File repertoire;
+   File fichier=null;
+   File nouveauFichier;
+   String[] listeFichiers;
+
+   
    %>
 <br>
 Bienvenue <%= login %> !
