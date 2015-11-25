@@ -1,7 +1,8 @@
 <!-- affichage.html -->
 <!DOCTYPE HTML>
 <HTML>
-<HEAD>
+  <HEAD>
+  <link rel="stylesheet" href="css/style.css" />
   <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <%@ page import="java.util.*" %>
   <%@ page import="java.io.File" %>
@@ -13,24 +14,35 @@
 <BODY>
 
 <center>
-<h1>Page pour l'affichage des tables</h1>
-<%
-   String login = (String)session.getAttribute("login");
-   if (login==null)
-   response.sendRedirect("index.html");
+  <h1>Page pour l'affichage des tables</h1>
 
-   File repertoire;
-   File fichier=null;
-   File nouveauFichier;
-   String[] listeFichiers;
+      <%
+	 String login = (String)session.getAttribute("login");
+	 if (login==null)
+	 response.sendRedirect("index.html");
 
-   
-   %>
+	 String[] listeFic = (String[])session.getAttribute("listeFichiers");
+	 %>
+      
 <br>
 Bienvenue <%= login %> !
 <br>
+<br>
+
+<TABLE>
+  <tr>
+    <th> <%= "Fichier de l'utilisateur "+session.getAttribute("login") %></th>
+  </tr>
+  <% for(int i=0;i< listeFic.length;i++){ %>
+       <tr>
+	 <td><%= listeFic[i] %></td>
+       </tr>
+       <% } %>
+</TABLE>
+   <br>
+   <br>
 <form method="post" action="index.html">
-<input type="submit" value="deconnecter" />
+<input type="submit" value="Deconnecter" />
 </form>
 <br>
 <br>

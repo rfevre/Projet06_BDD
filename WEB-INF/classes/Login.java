@@ -46,7 +46,7 @@ public class Login extends HttpServlet
 	    if(rs.next()) {
 		loginTmp = rs.getString("login");
 		session.setAttribute("login",loginTmp);
-		res.sendRedirect("../affichage.jsp");
+		res.sendRedirect("./affichageFichiers");
 	    }
 	    else {
 		res.sendRedirect("../enregistrement.jsp");
