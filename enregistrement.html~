@@ -1,0 +1,23 @@
+<!-- enregistrement.html -->
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+   <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <TITLE>Page d'enregistrement</TITLE>
+</HEAD>
+<BODY>
+
+<center>
+<h1>Page d'enregistrement</h1>
+</center>
+
+<br>
+<br>
+<form method="post" action="index.html">
+  <input type="submit" value="Valider" />
+</form>
+<br>
+<br>
+
+</BODY>
+</HTML>

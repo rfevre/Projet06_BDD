@@ -1,0 +1,23 @@
+<!-- affichage.html -->
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+   <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <TITLE>Page affichage</TITLE>
+</HEAD>
+<BODY>
+
+<center>
+<h1>Page pour l'affichage des tables</h1>
+</center>
+
+<br>
+<br>
+<form method="post" action="./servlet/deconnection">
+<input type="submit" value="deconnecter" />
+</form>
+<br>
+<br>
+
+</BODY>
+</HTML>
