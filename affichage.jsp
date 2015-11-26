@@ -41,6 +41,8 @@ Bienvenue <%= login %> !
 </TABLE>
    <br>
    <br>
+   <h1>Upload D'un Fichier</h1>
+   <br>
    <form method="POST" action="./servlet/upload" enctype="multipart/form-data" >
      File:
      <input type="file" name="file" id="file" />

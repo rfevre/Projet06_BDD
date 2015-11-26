@@ -39,6 +39,12 @@
     <input type="submit" value="Valider" />
     </p>
 </form>
+<form action="./index.html">
+  <p align="center">
+    <input type="submit" value="Retour" />
+  </p>
+</form>
+
 <br>
 <br>
 

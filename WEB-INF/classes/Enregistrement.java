@@ -62,7 +62,7 @@ public class Enregistrement extends HttpServlet
 		    res.sendRedirect("../enregistrement.jsp");
 		}
 		Runtime.getRuntime().exec("mkdir -p "+login1, null, new
-					  File(getServletContext().getRealPath("/")+"/users") );
+					  File(getServletContext().getRealPath("/users")) );
 		res.sendRedirect("../index.html");
 	    }
 	}
