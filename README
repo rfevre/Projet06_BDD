@@ -1,0 +1,15 @@
+
+=========================================================================
+Installation :
+
+=> Décomprésser l'archive dans votre dossier : tomcat/webapps/
+=> Modifier le fichier "Props.txt" avec vos identifiants et URL "PostgreSQL"
+=> Sous "PostgreSQL" créer une nouvelle table avec cette rêquéte :
+   	CREATE TABLE personne (nom text,login text,mdp text, CONSTRAINT pk_personne PRIMARY KEY(login));
+
+
+=========================================================================
+Fonctionnement de l'upload :
+
+
+

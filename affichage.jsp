@@ -14,7 +14,7 @@
 <BODY>
 
 <center>
-  <h1>Page pour l'affichage des tables</h1>
+  <h1>Fichiers de l'utilisateur</h1>
 
       <%
 	 String login = (String)session.getAttribute("login");
