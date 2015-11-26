@@ -19,7 +19,7 @@
       <%
 	 String login = (String)session.getAttribute("login");
 	 if (login==null)
-	 response.sendRedirect("index.html");
+	 response.sendRedirect("./index.html");
 
 	 String[] listeFic = (String[])session.getAttribute("listeFichiers");
 	 %>

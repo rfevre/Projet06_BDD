@@ -3,6 +3,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 import java.sql.*;
+import java.util.Properties;
 
 @WebServlet("/servlet/login")
 public class Login extends HttpServlet
@@ -16,19 +17,33 @@ public class Login extends HttpServlet
 	Statement stmt = null;
 	ResultSet rs = null;
 
+	String url = "";
+	String nom = "";
+	String mdp = "";
+
 	String login1="";
 	String mdp1="";
 
-	HttpSession session = null;
+	//Chargement des variables de session
+	HttpSession session = req.getSession(true);;
 	
 	try {
-	    //Chargement des variables de session
-	    session = req.getSession(true);
 	    //Enregistrement du Driver
-	    Class.forName("org.postgresql.Driver");	    
+	    Class.forName("org.postgresql.Driver");
+	    
+	    //Chargement du fichier Props
+	    Properties prop = new Properties();
+	    try {
+		prop.load(new FileInputStream(getServletContext().getRealPath("/Props.txt")));
+	        url = prop.getProperty("url");
+	        nom = prop.getProperty("nom");
+		mdp = prop.getProperty("mdp");
+	    } catch (Exception e) {
+		out.println(e.getMessage());
+	    }
+	    
 	    //Connexion a la base
-	    String url = "jdbc:postgresql://psqlserv/da2i";
-	    con = DriverManager.getConnection(url,"fevrer","moi");
+	    con = DriverManager.getConnection(url,nom,mdp);
 	    stmt = con.createStatement();
 
 	    login1 = req.getParameter("login");
@@ -62,7 +77,7 @@ public class Login extends HttpServlet
 		con.close();
 	    }
 	    catch(Exception e) {
-		System.out.println(e.getMessage());
+		out.println(e.getMessage());
 	    }
 	}
     }

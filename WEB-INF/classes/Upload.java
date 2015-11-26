@@ -24,7 +24,7 @@ public class Upload extends HttpServlet {
 	session = request.getSession(true);
 	
 	// Create path components to save the file
-	final String path = getServletContext().getRealPath("/")+"users/"+session.getAttribute("login");
+	final String path = getServletContext().getRealPath("/users/")+session.getAttribute("login");
 	final Part filePart = request.getPart("file");
 	final String fileName = getFileName(filePart);
 
