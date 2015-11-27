@@ -4,12 +4,17 @@ Installation :
 
 => Décomprésser l'archive dans votre dossier : tomcat/webapps/
 => Modifier le fichier "Props.txt" avec vos identifiants et URL "PostgreSQL"
-=> Sous "PostgreSQL" créer une nouvelle table avec cette rêquéte :
+=> Sous "PostgreSQL" créer une nouvelle table avec cet rêquéte :
    	CREATE TABLE personne (nom text,login text,mdp text, CONSTRAINT pk_personne PRIMARY KEY(login));
 
 
 =========================================================================
 Fonctionnement de l'upload :
 
-
-
+=> On récupére le chemin ou l'on va enregistré les fichiers de l'utilisateur;
+=> Avec un InputStream on ouvre le fichier envoyé par l'utilisateur;
+=> Tant que l'on peut lire dans le InputStream, on écrit le fichier grâce à l'OutpuStream
+   dans le dossier voulu;
+=> On retourne sur la page pour l'affichage du dossier de l'utilisateur;
+=> Grâce à une variable de session, on peut récupérer un message, afin d'indiquer
+   à l'utilisateur, si son Upload c'est bien passé ou non;

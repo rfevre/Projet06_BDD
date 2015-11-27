@@ -21,6 +21,8 @@
 	 if (login==null)
 	 response.sendRedirect("./index.html");
 
+	 String uploadMsg = (String)session.getAttribute("uploadMsg");
+
 	 String[] listeFic = (String[])session.getAttribute("listeFichiers");
 	 %>
       
@@ -42,6 +44,14 @@ Bienvenue <%= login %> !
    <br>
    <br>
    <h1>Upload D'un Fichier</h1>
+   <br>
+   <%
+      if (uploadMsg!=null){
+      out.println(uploadMsg);
+      session.removeAttribute("uploadMsg");
+      }
+      %>
+   <br>
    <br>
    <form method="POST" action="./servlet/upload" enctype="multipart/form-data" >
      File:
