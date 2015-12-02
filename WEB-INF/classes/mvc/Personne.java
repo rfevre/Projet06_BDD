@@ -9,7 +9,7 @@ public class Personne
 	private String tel;
 	private String fonction;
 
-	public Personne(){	}
+	public Personne(){}
 
 	public void setNum(int num){this.num=num;}
 	public void setNom(String nom){this.nom=nom;}
@@ -19,23 +19,13 @@ public class Personne
 	public void setFonction(String fonction){this.fonction=fonction;}
 
 	public String getHTML(){
-		return "<table>"+
-				"<tr>"+
-					"<th> num </th>"+
-					"<th> nom </th>"+
-					"<th> prenom </th>"+
-					"<th> sexe </th>"+
-					"<th> tel </th>"+
-					"<th> fonction </th>"+
-				"</tr>"+
-				"<tr>"+
+		return "<tr>"+
 					"<td>" + num + "</td>"+
 					"<td>" + nom + "</td>"+
 					"<td>" + prenom + "</td>"+
 					"<td>" + sexe + "</td>"+
 					"<td>" + tel + "</td>"+
 					"<td>" + fonction + "</td>"+
-				"</tr>"+
-				"</table>";
+				"</tr>";
 	}
 }
